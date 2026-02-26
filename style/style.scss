@@ -1,0 +1,1138 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    list-style-type: none;
+}
+
+// цвета
+$fon: #131720;
+$fonn: #131720;
+$foncart: #161B25;
+$podval: #0B0E13;
+$cnopki: #C9A24D;
+$smalltext: #8A909C;
+$text: #B9BDC6;
+$h3: #E6E8EB;
+$white: #FFFFFF;
+// текст
+h1 {
+    font-size: 56px;
+    color: $white;
+    font-family: "SemiBold";
+}
+
+h2 {
+    font-size: 36px;
+    color: $white;
+    font-family: "Medium";
+    letter-spacing: 0.3rem;
+}
+
+h3 {
+    font-size: 22px;
+    color: $h3;
+    font-family: "Medium";
+    letter-spacing: 0.3rem;
+}
+
+p {
+    font-size: 16px;
+    color: $text;
+    font-family: "Regular";
+    letter-spacing: 0.1rem;
+}
+
+// кнопки
+button {
+    position: relative;
+    overflow: hidden;
+    color: $fon;
+    padding: 14px 28px;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 500;
+    background: linear-gradient( 135deg, rgba(201, 162, 77, 0.95), rgba(201, 162, 77, 0.8));
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+    &::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -60%;
+        width: 200%;
+        height: 200%;
+        background: linear-gradient( 120deg, transparent 40%, rgba(255, 255, 255, 0.45), transparent 60%);
+        transform: translateX(-100%);
+        transition: transform 0.7s ease;
+    }
+    &:hover {
+        transform: translateY(-2px);
+        background: linear-gradient( 135deg, rgba(215, 175, 85, 1), rgba(201, 162, 77, 0.9));
+        box-shadow: 0 10px 24px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.55);
+        &::before {
+            transform: translateX(100%);
+        }
+    }
+    &:active {
+        transform: translateY(0);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4), inset 0 3px 6px rgba(0, 0, 0, 0.25);
+    }
+}
+
+.b {
+    // стеклянная кнопка в шапке
+    button {
+        position: relative;
+        overflow: hidden;
+        padding: 14px 28px;
+        border-radius: 12px;
+        color: $white;
+        font-size: 15px;
+        font-weight: 500;
+        background: linear-gradient( 135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+        cursor: pointer;
+        transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+        // световой блик
+        &::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -60%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient( 120deg, transparent 30%, rgba(255, 255, 255, 0.35), transparent 70%);
+            transform: translateX(-100%);
+            transition: transform 0.8s ease;
+        }
+        &:hover {
+            transform: translateY(-2px);
+            border-color: rgba(201, 162, 77, 0.6);
+            box-shadow: 0 12px 36px rgba(0, 0, 0, 0.5), 0 0 18px rgba(201, 162, 77, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+            &::before {
+                transform: translateX(100%);
+            }
+        }
+        &:active {
+            transform: translateY(0);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4), inset 0 2px 6px rgba(0, 0, 0, 0.4);
+        }
+    }
+}
+
+// шрифты
+@font-face {
+    font-family: "SemiBold";
+    src: url(../assets/fonts/SemiBold.otf);
+}
+
+@font-face {
+    font-family: "Medium";
+    src: url(../assets/fonts/Medium.otf);
+}
+
+@font-face {
+    font-family: "Regular";
+    src: url(../assets/fonts/Regular.otf);
+}
+
+body {
+    background: linear-gradient($fon, $fonn);
+    max-width: 1920px;
+    display: flex;
+    flex-direction: column;
+    padding: 150px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    gap: 120px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 17px 95px;
+    border: 1px solid #1F2430;
+    border-top: none;
+    align-items: center;
+    border-radius: 12px;
+    ul {
+        display: flex;
+        gap: 32px;
+        li {
+            color: $text;
+            font-family: "Regular";
+            font-size: 14px;
+        }
+        a {
+            text-decoration: none;
+        }
+    }
+}
+
+footer {
+    display: flex;
+    padding: 32px 200px;
+    background: $podval;
+    flex-direction: column;
+    gap: 20px;
+    border-radius: 12px;
+    border: 1px solid #1F2430;
+    border-bottom: none;
+    section {
+        display: flex;
+        justify-content: space-between;
+        .one {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            width: 307px;
+            p {
+                color: $smalltext;
+                font-size: 13px;
+            }
+            img {
+                width: 160px;
+            }
+        }
+        .text {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            p {
+                color: $text;
+                font-size: 14px;
+            }
+        }
+        .two {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            p {
+                font-size: 14px;
+                color: $h3;
+            }
+            p2 {
+                color: $smalltext;
+                font-size: 13px;
+                font-family: "Regular";
+            }
+        }
+    }
+    section2 {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        p {
+            color: #6F7684;
+            font-size: 12px;
+        }
+    }
+}
+
+// страница главная
+.herobloc {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    padding: 32px;
+    gap: 100px;
+    border-radius: 24px;
+    /* ОСНОВА СТЕКЛА */
+    background: rgba(12, 15, 22, 0.55);
+    backdrop-filter: blur(20px) saturate(120%);
+    -webkit-backdrop-filter: blur(20px) saturate(120%);
+    /* ТОНКАЯ СТЕКЛЯННАЯ РАМКА */
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    /* ГЛУБИНА */
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), /* верхний блик */
+    inset 0 -1px 0 rgba(0, 0, 0, 0.45), /* нижняя кромка */
+    inset 0 0 0 1px rgba(255, 255, 255, 0.02);
+    /* микроконтур */
+    color: #fff;
+    /* ВНУТРЕННИЙ СВЕТ (очень важно) */
+    &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        background: radial-gradient( 120% 90% at 50% 0%, rgba(255, 255, 255, 0.08), transparent 60%);
+        pointer-events: none;
+        z-index: 1;
+    }
+    /* NOISE — убирает «пластик» */
+    &::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+        mix-blend-mode: overlay;
+        pointer-events: none;
+        z-index: 2;
+    }
+    /* КОНТЕНТ */
+    >* {
+        position: relative;
+        z-index: 3;
+    }
+    .text {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+        .colons {
+            display: flex;
+            gap: 50px;
+            .colon {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                width: 300px;
+                img {
+                    width: 36px;
+                    opacity: 0.85;
+                }
+            }
+        }
+    }
+    .bb {
+        display: flex;
+        gap: 10px;
+    }
+}
+
+.bloc {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    section {
+        display: flex;
+        gap: 32px;
+        .text {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+    }
+}
+
+.bloc2 {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    padding: 32px;
+    border: 1px solid #1F2430;
+    border-radius: 12px;
+    /* ОСНОВА СТЕКЛА */
+    background: rgba(12, 15, 22, 0.55);
+    backdrop-filter: blur(20px) saturate(120%);
+    -webkit-backdrop-filter: blur(20px) saturate(120%);
+    /* ТОНКАЯ СТЕКЛЯННАЯ РАМКА */
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    /* ГЛУБИНА */
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), /* верхний блик */
+    inset 0 -1px 0 rgba(0, 0, 0, 0.45), /* нижняя кромка */
+    inset 0 0 0 1px rgba(255, 255, 255, 0.02);
+    /* микроконтур */
+    color: #fff;
+    /* ВНУТРЕННИЙ СВЕТ (очень важно) */
+    &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        background: radial-gradient( 120% 90% at 50% 0%, rgba(255, 255, 255, 0.08), transparent 60%);
+        pointer-events: none;
+        z-index: 1;
+    }
+    /* NOISE — убирает «пластик» */
+    &::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+        mix-blend-mode: overlay;
+        pointer-events: none;
+        z-index: 2;
+    }
+    /* КОНТЕНТ */
+    >* {
+        position: relative;
+        z-index: 3;
+    }
+    .text {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        width: 700px;
+    }
+}
+
+.bloc3 {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    button {
+        width: fit-content;
+    }
+    section {
+        display: flex;
+        gap: 32px;
+        .cart {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            background: $foncart;
+            border-radius: 12px;
+            padding: 32px;
+            p2 {
+                color: $cnopki;
+                font-size: 48px;
+                font-family: "Regular";
+            }
+        }
+    }
+}
+
+// страница инструменты
+.cart {
+    display: flex;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    gap: 55px;
+    .text {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+    }
+    .verticalLine {
+        border-left: 1px solid rgba(255, 255, 255, 0.1)
+    }
+}
+
+.cart2 {
+    display: flex;
+    padding: 32px;
+    gap: 84px;
+    border-radius: 12px;
+    border: 1px solid #1F2430;
+    /* ОСНОВА СТЕКЛА */
+    background: rgba(12, 15, 22, 0.55);
+    backdrop-filter: blur(20px) saturate(120%);
+    -webkit-backdrop-filter: blur(20px) saturate(120%);
+    /* ТОНКАЯ СТЕКЛЯННАЯ РАМКА */
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    /* ГЛУБИНА */
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), /* верхний блик */
+    inset 0 -1px 0 rgba(0, 0, 0, 0.45), /* нижняя кромка */
+    inset 0 0 0 1px rgba(255, 255, 255, 0.02);
+    /* микроконтур */
+    color: #fff;
+    /* ВНУТРЕННИЙ СВЕТ (очень важно) */
+    &::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        background: radial-gradient( 120% 90% at 50% 0%, rgba(255, 255, 255, 0.08), transparent 60%);
+        pointer-events: none;
+        z-index: 1;
+    }
+    /* NOISE — убирает «пластик» */
+    &::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+        mix-blend-mode: overlay;
+        pointer-events: none;
+        z-index: 2;
+    }
+    /* КОНТЕНТ */
+    >* {
+        position: relative;
+        z-index: 3;
+    }
+    .one {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+        width: 900px;
+    }
+    .one2 {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+        .text {
+            display: flex;
+            gap: 32px;
+            h3 {
+                font-size: 16px;
+            }
+        }
+    }
+}
+
+.cart3 {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    p {
+        font-size: 22px;
+    }
+    .text {
+        display: flex;
+        gap: 32px;
+        p {
+            font-size: 16px;
+        }
+        h3 {
+            font-size: 16px;
+        }
+    }
+}
+
+// страница безопасность
+.zag {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    .h {
+        width: 900px;
+        h3 {
+            font-size: 18px;
+        }
+    }
+    section {
+        display: flex;
+        flex-direction: column;
+        gap: 42px;
+        .one {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+        .two {
+            display: flex;
+            flex-direction: column;
+            gap: 60px;
+            padding: 32px;
+            border-radius: 12px;
+            border: 1px solid #1F2430;
+            align-items: center;
+            /* ОСНОВА СТЕКЛА */
+            background: rgba(12, 15, 22, 0.55);
+            backdrop-filter: blur(20px) saturate(120%);
+            -webkit-backdrop-filter: blur(20px) saturate(120%);
+            /* ТОНКАЯ СТЕКЛЯННАЯ РАМКА */
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            /* ГЛУБИНА */
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), /* верхний блик */
+            inset 0 -1px 0 rgba(0, 0, 0, 0.45), /* нижняя кромка */
+            inset 0 0 0 1px rgba(255, 255, 255, 0.02);
+            /* микроконтур */
+            color: #fff;
+            /* ВНУТРЕННИЙ СВЕТ (очень важно) */
+            &::before {
+                content: '';
+                position: absolute;
+                inset: 0;
+                border-radius: inherit;
+                background: radial-gradient( 120% 90% at 50% 0%, rgba(255, 255, 255, 0.08), transparent 60%);
+                pointer-events: none;
+                z-index: 1;
+            }
+            /* NOISE — убирает «пластик» */
+            &::after {
+                content: '';
+                position: absolute;
+                inset: 0;
+                border-radius: inherit;
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+                mix-blend-mode: overlay;
+                pointer-events: none;
+                z-index: 2;
+            }
+            /* КОНТЕНТ */
+            >* {
+                position: relative;
+                z-index: 3;
+            }
+            .text {
+                display: flex;
+                gap: 60px;
+                .t {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 32px;
+                }
+            }
+            .t {
+                display: flex;
+                width: 700px;
+                flex-direction: column;
+                gap: 32px;
+            }
+        }
+    }
+}
+
+.zag2 {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    .text {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+        width: 750px;
+    }
+    section {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+        align-items: center;
+        .tex {
+            display: flex;
+            gap: 32px;
+            .t {
+                /* ОСНОВА СТЕКЛА */
+                background: rgba(12, 15, 22, 0.55);
+                backdrop-filter: blur(20px) saturate(120%);
+                -webkit-backdrop-filter: blur(20px) saturate(120%);
+                /* ТОНКАЯ СТЕКЛЯННАЯ РАМКА */
+                border: 1px solid rgba(255, 255, 255, 0.08);
+                /* ГЛУБИНА */
+                box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), /* верхний блик */
+                inset 0 -1px 0 rgba(0, 0, 0, 0.45), /* нижняя кромка */
+                inset 0 0 0 1px rgba(255, 255, 255, 0.02);
+                /* микроконтур */
+                color: #fff;
+                /* ВНУТРЕННИЙ СВЕТ (очень важно) */
+                &::before {
+                    content: '';
+                    position: absolute;
+                    inset: 0;
+                    border-radius: inherit;
+                    background: radial-gradient( 120% 90% at 50% 0%, rgba(255, 255, 255, 0.08), transparent 60%);
+                    pointer-events: none;
+                    z-index: 1;
+                }
+                /* NOISE — убирает «пластик» */
+                &::after {
+                    content: '';
+                    position: absolute;
+                    inset: 0;
+                    border-radius: inherit;
+                    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+                    mix-blend-mode: overlay;
+                    pointer-events: none;
+                    z-index: 2;
+                }
+                /* КОНТЕНТ */
+                >* {
+                    position: relative;
+                    z-index: 3;
+                }
+                display: flex;
+                width: 100%;
+                flex-direction: column;
+                gap: 28px;
+                border-radius: 12px;
+                border: 1px solid #1F2430;
+                padding: 12px;
+            }
+        }
+        .t {
+            width: 700px;
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+            border-radius: 12px;
+            border: 1px solid #1F2430;
+            padding: 12px;
+            /* ОСНОВА СТЕКЛА */
+            background: rgba(12, 15, 22, 0.55);
+            backdrop-filter: blur(20px) saturate(120%);
+            -webkit-backdrop-filter: blur(20px) saturate(120%);
+            /* ТОНКАЯ СТЕКЛЯННАЯ РАМКА */
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            /* ГЛУБИНА */
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), /* верхний блик */
+            inset 0 -1px 0 rgba(0, 0, 0, 0.45), /* нижняя кромка */
+            inset 0 0 0 1px rgba(255, 255, 255, 0.02);
+            /* микроконтур */
+            color: #fff;
+            /* ВНУТРЕННИЙ СВЕТ (очень важно) */
+            &::before {
+                content: '';
+                position: absolute;
+                inset: 0;
+                border-radius: inherit;
+                background: radial-gradient( 120% 90% at 50% 0%, rgba(255, 255, 255, 0.08), transparent 60%);
+                pointer-events: none;
+                z-index: 1;
+            }
+            /* NOISE — убирает «пластик» */
+            &::after {
+                content: '';
+                position: absolute;
+                inset: 0;
+                border-radius: inherit;
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+                mix-blend-mode: overlay;
+                pointer-events: none;
+                z-index: 2;
+            }
+            /* КОНТЕНТ */
+            >* {
+                position: relative;
+                z-index: 3;
+            }
+        }
+    }
+}
+
+.zag3 {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    .text {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+    }
+    section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 32px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        padding-top: 32px;
+        padding-bottom: 32px;
+        .tex {
+            display: flex;
+            gap: 32px;
+            .t {
+                display: flex;
+                width: 100%;
+                flex-direction: column;
+                gap: 24px;
+            }
+            .verticalLine {
+                border-left: 1px solid rgba(255, 255, 255, 0.1)
+            }
+        }
+        .tt {
+            display: flex;
+            align-items: center;
+            width: 750px;
+            flex-direction: column;
+            gap: 24px;
+        }
+    }
+}
+
+.zag4 {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    width: 1000px;
+    padding-left: 292px;
+    padding-right: 292px;
+}
+
+// страница доходность
+.doxod {
+    display: flex;
+    padding-left: 460px;
+    padding-right: 460px;
+}
+
+.doxod2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    section {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        padding: 40px;
+        border-radius: 12px;
+        border: 1px solid #1F2430;
+        h2 {
+            color: $cnopki;
+        }
+        .text {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        /* ОСНОВА СТЕКЛА */
+        background: rgba(12,
+        15,
+        22,
+        0.55);
+        backdrop-filter: blur(20px) saturate(120%);
+        -webkit-backdrop-filter: blur(20px) saturate(120%);
+        /* ТОНКАЯ СТЕКЛЯННАЯ РАМКА */
+        border: 1px solid rgba(255,
+        255,
+        255,
+        0.08);
+        /* ГЛУБИНА */
+        box-shadow: inset 0 1px 0 rgba(255,
+        255,
+        255,
+        0.08),
+        /* верхний блик */
+        inset 0 -1px 0 rgba(0,
+        0,
+        0,
+        0.45),
+        /* нижняя кромка */
+        inset 0 0 0 1px rgba(255,
+        255,
+        255,
+        0.02);
+        /* микроконтур */
+        color: #fff;
+        /* ВНУТРЕННИЙ СВЕТ (очень важно) */
+        &::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            background: radial-gradient( 120% 90% at 50% 0%, rgba(255, 255, 255, 0.08), transparent 60%);
+            pointer-events: none;
+            z-index: 1;
+        }
+        /* NOISE — убирает «пластик» */
+        &::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+            mix-blend-mode: overlay;
+            pointer-events: none;
+            z-index: 2;
+        }
+        /* КОНТЕНТ */
+        >* {
+            position: relative;
+            z-index: 3;
+        }
+    }
+}
+
+.doxod3 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    section {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        padding: 40px;
+        border-radius: 12px;
+        border: 1px solid #1F2430;
+        h2 {
+            color: $cnopki;
+        }
+        .text {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .t {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            p {
+                font-size: 15px;
+            }
+        }
+        /* ОСНОВА СТЕКЛА */
+        background: rgba(12,
+        15,
+        22,
+        0.55);
+        backdrop-filter: blur(20px) saturate(120%);
+        -webkit-backdrop-filter: blur(20px) saturate(120%);
+        /* ТОНКАЯ СТЕКЛЯННАЯ РАМКА */
+        border: 1px solid rgba(255,
+        255,
+        255,
+        0.08);
+        /* ГЛУБИНА */
+        box-shadow: inset 0 1px 0 rgba(255,
+        255,
+        255,
+        0.08),
+        /* верхний блик */
+        inset 0 -1px 0 rgba(0,
+        0,
+        0,
+        0.45),
+        /* нижняя кромка */
+        inset 0 0 0 1px rgba(255,
+        255,
+        255,
+        0.02);
+        /* микроконтур */
+        color: #fff;
+        /* ВНУТРЕННИЙ СВЕТ (очень важно) */
+        &::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            background: radial-gradient( 120% 90% at 50% 0%, rgba(255, 255, 255, 0.08), transparent 60%);
+            pointer-events: none;
+            z-index: 1;
+        }
+        /* NOISE — убирает «пластик» */
+        &::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+            mix-blend-mode: overlay;
+            pointer-events: none;
+            z-index: 2;
+        }
+        /* КОНТЕНТ */
+        >* {
+            position: relative;
+            z-index: 3;
+        }
+    }
+}
+
+.doxod4 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    .text {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        align-items: center;
+        p {
+            color: $smalltext;
+        }
+        img {
+            width: 400px;
+        }
+    }
+}
+
+.doxod5 {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    align-items: center;
+    section {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        align-items: center;
+        section2 {
+            display: flex;
+            padding: 10px;
+            gap: 20px;
+            border-radius: 12px;
+            border: 1px solid #1F2430;
+            .text {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+                align-items: center;
+                h3 {
+                    font-size: 14px;
+                }
+                p {
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+    p {
+        font-size: 12px;
+    }
+}
+
+// страница калькулятор
+.calc {
+    display: flex;
+    flex-direction: column;
+    border-radius: 24px;
+    border: 1px solid #1F2430;
+    gap: 40px;
+    padding: 40px;
+    .text {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+        h1 {
+            font-size: 40px;
+        }
+    }
+    .text2 {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        .t {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            input[type="text"] {
+                font-family: "SemiBold";
+                font-size: 16px;
+                padding: 10px 14px;
+                border-radius: 6px;
+                background: none;
+                border: 1px solid #DADDE3;
+                color: rgb(255, 255, 255, 20%);
+            }
+            .name {
+                font-size: 13px;
+                font-family: "SemiBold";
+                color: $text;
+            }
+        }
+        .tt {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            h3 {
+                font-family: "SemiBold";
+                font-size: 13px;
+                color: $text;
+            }
+            label {
+                color: $text;
+                font-size: 15px;
+                font-family: "Regular";
+            }
+        }
+    }
+    .line {
+        display: block;
+        height: 1px;
+        border: none;
+        border-top: 3px solid $h3;
+        padding: 0;
+    }
+    .text3 {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+        .t {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            h3 {
+                font-size: 13px;
+                font-family: "SemiBold";
+                color: #6F7684;
+            }
+            h1 {
+                font-size: 44px;
+                color: $h3;
+            }
+            h2 {
+                font-size: 20px;
+                font-family: "SemiBold";
+                color: $h3;
+            }
+        }
+    }
+    .text4 {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        width: 700px;
+        h3 {
+            font-size: 14px;
+            font-family: "SemiBold";
+        }
+        p {
+            font-size: 14px;
+        }
+    }
+}
+
+.calc2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    p {
+        font-size: 12px;
+    }
+}
+
+// страница процесс
+.process {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 80px;
+}
+
+.process3 {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+    align-items: center;
+    .text {
+        width: 700px;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        h3 {
+            font-size: 28px;
+        }
+    }
+}
+
+.line {
+    display: block;
+    height: 1px;
+    border: none;
+    border-top: 3px solid $h3;
+    padding: 0;
+}
+
+.process2 {
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+    .text {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        h3 {
+            font-size: 20px;
+            font-size: "SemiBold";
+        }
+    }
+}

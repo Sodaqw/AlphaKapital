@@ -1,0 +1,1102 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  list-style-type: none;
+}
+
+h1 {
+  font-size: 56px;
+  color: #FFFFFF;
+  font-family: "SemiBold";
+}
+
+h2 {
+  font-size: 36px;
+  color: #FFFFFF;
+  font-family: "Medium";
+  letter-spacing: 0.3rem;
+}
+
+h3 {
+  font-size: 22px;
+  color: #E6E8EB;
+  font-family: "Medium";
+  letter-spacing: 0.3rem;
+}
+
+p {
+  font-size: 16px;
+  color: #B9BDC6;
+  font-family: "Regular";
+  letter-spacing: 0.1rem;
+}
+
+button {
+  position: relative;
+  overflow: hidden;
+  color: #131720;
+  padding: 14px 28px;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 500;
+  background: linear-gradient(135deg, rgba(201, 162, 77, 0.95), rgba(201, 162, 77, 0.8));
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+button::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -60%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(120deg, transparent 40%, rgba(255, 255, 255, 0.45), transparent 60%);
+  transform: translateX(-100%);
+  transition: transform 0.7s ease;
+}
+button:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, rgb(215, 175, 85), rgba(201, 162, 77, 0.9));
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.55);
+}
+button:hover::before {
+  transform: translateX(100%);
+}
+button:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4), inset 0 3px 6px rgba(0, 0, 0, 0.25);
+}
+
+.b button {
+  position: relative;
+  overflow: hidden;
+  padding: 14px 28px;
+  border-radius: 12px;
+  color: #FFFFFF;
+  font-size: 15px;
+  font-weight: 500;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  cursor: pointer;
+  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+}
+.b button::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -60%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(120deg, transparent 30%, rgba(255, 255, 255, 0.35), transparent 70%);
+  transform: translateX(-100%);
+  transition: transform 0.8s ease;
+}
+.b button:hover {
+  transform: translateY(-2px);
+  border-color: rgba(201, 162, 77, 0.6);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.5), 0 0 18px rgba(201, 162, 77, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+.b button:hover::before {
+  transform: translateX(100%);
+}
+.b button:active {
+  transform: translateY(0);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4), inset 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+@font-face {
+  font-family: "SemiBold";
+  src: url(../assets/fonts/SemiBold.otf);
+}
+@font-face {
+  font-family: "Medium";
+  src: url(../assets/fonts/Medium.otf);
+}
+@font-face {
+  font-family: "Regular";
+  src: url(../assets/fonts/Regular.otf);
+}
+body {
+  background: linear-gradient(#131720, #131720);
+  max-width: 1920px;
+  display: flex;
+  flex-direction: column;
+  padding: 150px;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  gap: 120px;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 17px 95px;
+  border: 1px solid #1F2430;
+  border-top: none;
+  align-items: center;
+  border-radius: 12px;
+}
+header ul {
+  display: flex;
+  gap: 32px;
+}
+header ul li {
+  color: #B9BDC6;
+  font-family: "Regular";
+  font-size: 14px;
+}
+header ul a {
+  text-decoration: none;
+}
+
+footer {
+  display: flex;
+  padding: 32px 200px;
+  background: #0B0E13;
+  flex-direction: column;
+  gap: 20px;
+  border-radius: 12px;
+  border: 1px solid #1F2430;
+  border-bottom: none;
+}
+footer section {
+  display: flex;
+  justify-content: space-between;
+}
+footer section .one {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 307px;
+}
+footer section .one p {
+  color: #8A909C;
+  font-size: 13px;
+}
+footer section .one img {
+  width: 160px;
+}
+footer section .text {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+footer section .text p {
+  color: #B9BDC6;
+  font-size: 14px;
+}
+footer section .two {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+footer section .two p {
+  font-size: 14px;
+  color: #E6E8EB;
+}
+footer section .two p2 {
+  color: #8A909C;
+  font-size: 13px;
+  font-family: "Regular";
+}
+footer section2 {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+footer section2 p {
+  color: #6F7684;
+  font-size: 12px;
+}
+
+.herobloc {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  padding: 32px;
+  gap: 100px;
+  border-radius: 24px;
+  /* ОСНОВА СТЕКЛА */
+  background: rgba(12, 15, 22, 0.55);
+  backdrop-filter: blur(20px) saturate(120%);
+  -webkit-backdrop-filter: blur(20px) saturate(120%);
+  /* ТОНКАЯ СТЕКЛЯННАЯ РАМКА */
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  /* ГЛУБИНА */
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), inset 0 -1px 0 rgba(0, 0, 0, 0.45), inset 0 0 0 1px rgba(255, 255, 255, 0.02);
+  /* микроконтур */
+  color: #fff;
+  /* ВНУТРЕННИЙ СВЕТ (очень важно) */
+}
+.herobloc::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(120% 90% at 50% 0%, rgba(255, 255, 255, 0.08), transparent 60%);
+  pointer-events: none;
+  z-index: 1;
+}
+.herobloc {
+  /* NOISE — убирает «пластик» */
+}
+.herobloc::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+  mix-blend-mode: overlay;
+  pointer-events: none;
+  z-index: 2;
+}
+.herobloc {
+  /* КОНТЕНТ */
+}
+.herobloc > * {
+  position: relative;
+  z-index: 3;
+}
+.herobloc .text {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+.herobloc .text .colons {
+  display: flex;
+  gap: 50px;
+}
+.herobloc .text .colons .colon {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 300px;
+}
+.herobloc .text .colons .colon img {
+  width: 36px;
+  opacity: 0.85;
+}
+.herobloc .bb {
+  display: flex;
+  gap: 10px;
+}
+
+.bloc {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+.bloc section {
+  display: flex;
+  gap: 32px;
+}
+.bloc section .text {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.bloc2 {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  padding: 32px;
+  border: 1px solid #1F2430;
+  border-radius: 12px;
+  /* ОСНОВА СТЕКЛА */
+  background: rgba(12, 15, 22, 0.55);
+  backdrop-filter: blur(20px) saturate(120%);
+  -webkit-backdrop-filter: blur(20px) saturate(120%);
+  /* ТОНКАЯ СТЕКЛЯННАЯ РАМКА */
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  /* ГЛУБИНА */
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), inset 0 -1px 0 rgba(0, 0, 0, 0.45), inset 0 0 0 1px rgba(255, 255, 255, 0.02);
+  /* микроконтур */
+  color: #fff;
+  /* ВНУТРЕННИЙ СВЕТ (очень важно) */
+}
+.bloc2::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(120% 90% at 50% 0%, rgba(255, 255, 255, 0.08), transparent 60%);
+  pointer-events: none;
+  z-index: 1;
+}
+.bloc2 {
+  /* NOISE — убирает «пластик» */
+}
+.bloc2::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+  mix-blend-mode: overlay;
+  pointer-events: none;
+  z-index: 2;
+}
+.bloc2 {
+  /* КОНТЕНТ */
+}
+.bloc2 > * {
+  position: relative;
+  z-index: 3;
+}
+.bloc2 .text {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 700px;
+}
+
+.bloc3 {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+.bloc3 button {
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.bloc3 section {
+  display: flex;
+  gap: 32px;
+}
+.bloc3 section .cart {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  background: #161B25;
+  border-radius: 12px;
+  padding: 32px;
+}
+.bloc3 section .cart p2 {
+  color: #C9A24D;
+  font-size: 48px;
+  font-family: "Regular";
+}
+
+.cart {
+  display: flex;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  gap: 55px;
+}
+.cart .text {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+.cart .verticalLine {
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.cart2 {
+  display: flex;
+  padding: 32px;
+  gap: 84px;
+  border-radius: 12px;
+  border: 1px solid #1F2430;
+  /* ОСНОВА СТЕКЛА */
+  background: rgba(12, 15, 22, 0.55);
+  backdrop-filter: blur(20px) saturate(120%);
+  -webkit-backdrop-filter: blur(20px) saturate(120%);
+  /* ТОНКАЯ СТЕКЛЯННАЯ РАМКА */
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  /* ГЛУБИНА */
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), inset 0 -1px 0 rgba(0, 0, 0, 0.45), inset 0 0 0 1px rgba(255, 255, 255, 0.02);
+  /* микроконтур */
+  color: #fff;
+  /* ВНУТРЕННИЙ СВЕТ (очень важно) */
+}
+.cart2::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(120% 90% at 50% 0%, rgba(255, 255, 255, 0.08), transparent 60%);
+  pointer-events: none;
+  z-index: 1;
+}
+.cart2 {
+  /* NOISE — убирает «пластик» */
+}
+.cart2::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+  mix-blend-mode: overlay;
+  pointer-events: none;
+  z-index: 2;
+}
+.cart2 {
+  /* КОНТЕНТ */
+}
+.cart2 > * {
+  position: relative;
+  z-index: 3;
+}
+.cart2 .one {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  width: 900px;
+}
+.cart2 .one2 {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+.cart2 .one2 .text {
+  display: flex;
+  gap: 32px;
+}
+.cart2 .one2 .text h3 {
+  font-size: 16px;
+}
+
+.cart3 {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+.cart3 p {
+  font-size: 22px;
+}
+.cart3 .text {
+  display: flex;
+  gap: 32px;
+}
+.cart3 .text p {
+  font-size: 16px;
+}
+.cart3 .text h3 {
+  font-size: 16px;
+}
+
+.zag {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+.zag .h {
+  width: 900px;
+}
+.zag .h h3 {
+  font-size: 18px;
+}
+.zag section {
+  display: flex;
+  flex-direction: column;
+  gap: 42px;
+}
+.zag section .one {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+.zag section .two {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  padding: 32px;
+  border-radius: 12px;
+  border: 1px solid #1F2430;
+  align-items: center;
+  /* ОСНОВА СТЕКЛА */
+  background: rgba(12, 15, 22, 0.55);
+  backdrop-filter: blur(20px) saturate(120%);
+  -webkit-backdrop-filter: blur(20px) saturate(120%);
+  /* ТОНКАЯ СТЕКЛЯННАЯ РАМКА */
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  /* ГЛУБИНА */
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), inset 0 -1px 0 rgba(0, 0, 0, 0.45), inset 0 0 0 1px rgba(255, 255, 255, 0.02);
+  /* микроконтур */
+  color: #fff;
+  /* ВНУТРЕННИЙ СВЕТ (очень важно) */
+}
+.zag section .two::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(120% 90% at 50% 0%, rgba(255, 255, 255, 0.08), transparent 60%);
+  pointer-events: none;
+  z-index: 1;
+}
+.zag section .two {
+  /* NOISE — убирает «пластик» */
+}
+.zag section .two::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+  mix-blend-mode: overlay;
+  pointer-events: none;
+  z-index: 2;
+}
+.zag section .two {
+  /* КОНТЕНТ */
+}
+.zag section .two > * {
+  position: relative;
+  z-index: 3;
+}
+.zag section .two .text {
+  display: flex;
+  gap: 60px;
+}
+.zag section .two .text .t {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+.zag section .two .t {
+  display: flex;
+  width: 700px;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.zag2 {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+.zag2 .text {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  width: 750px;
+}
+.zag2 section {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  align-items: center;
+}
+.zag2 section .tex {
+  display: flex;
+  gap: 32px;
+}
+.zag2 section .tex .t {
+  /* ОСНОВА СТЕКЛА */
+  background: rgba(12, 15, 22, 0.55);
+  backdrop-filter: blur(20px) saturate(120%);
+  -webkit-backdrop-filter: blur(20px) saturate(120%);
+  /* ТОНКАЯ СТЕКЛЯННАЯ РАМКА */
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  /* ГЛУБИНА */
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), inset 0 -1px 0 rgba(0, 0, 0, 0.45), inset 0 0 0 1px rgba(255, 255, 255, 0.02);
+  /* микроконтур */
+  color: #fff;
+  /* ВНУТРЕННИЙ СВЕТ (очень важно) */
+}
+.zag2 section .tex .t::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(120% 90% at 50% 0%, rgba(255, 255, 255, 0.08), transparent 60%);
+  pointer-events: none;
+  z-index: 1;
+}
+.zag2 section .tex .t {
+  /* NOISE — убирает «пластик» */
+}
+.zag2 section .tex .t::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+  mix-blend-mode: overlay;
+  pointer-events: none;
+  z-index: 2;
+}
+.zag2 section .tex .t {
+  /* КОНТЕНТ */
+}
+.zag2 section .tex .t > * {
+  position: relative;
+  z-index: 3;
+}
+.zag2 section .tex .t {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  gap: 28px;
+  border-radius: 12px;
+  border: 1px solid #1F2430;
+  padding: 12px;
+}
+.zag2 section .t {
+  width: 700px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  border-radius: 12px;
+  border: 1px solid #1F2430;
+  padding: 12px;
+  /* ОСНОВА СТЕКЛА */
+  background: rgba(12, 15, 22, 0.55);
+  backdrop-filter: blur(20px) saturate(120%);
+  -webkit-backdrop-filter: blur(20px) saturate(120%);
+  /* ТОНКАЯ СТЕКЛЯННАЯ РАМКА */
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  /* ГЛУБИНА */
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), inset 0 -1px 0 rgba(0, 0, 0, 0.45), inset 0 0 0 1px rgba(255, 255, 255, 0.02);
+  /* микроконтур */
+  color: #fff;
+  /* ВНУТРЕННИЙ СВЕТ (очень важно) */
+}
+.zag2 section .t::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(120% 90% at 50% 0%, rgba(255, 255, 255, 0.08), transparent 60%);
+  pointer-events: none;
+  z-index: 1;
+}
+.zag2 section .t {
+  /* NOISE — убирает «пластик» */
+}
+.zag2 section .t::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+  mix-blend-mode: overlay;
+  pointer-events: none;
+  z-index: 2;
+}
+.zag2 section .t {
+  /* КОНТЕНТ */
+}
+.zag2 section .t > * {
+  position: relative;
+  z-index: 3;
+}
+
+.zag3 {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+.zag3 .text {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+.zag3 section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 32px;
+  padding-bottom: 32px;
+}
+.zag3 section .tex {
+  display: flex;
+  gap: 32px;
+}
+.zag3 section .tex .t {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  gap: 24px;
+}
+.zag3 section .tex .verticalLine {
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+}
+.zag3 section .tt {
+  display: flex;
+  align-items: center;
+  width: 750px;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.zag4 {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  width: 1000px;
+  padding-left: 292px;
+  padding-right: 292px;
+}
+
+.doxod {
+  display: flex;
+  padding-left: 460px;
+  padding-right: 460px;
+}
+
+.doxod2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+.doxod2 section {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 40px;
+  border-radius: 12px;
+  border: 1px solid #1F2430;
+}
+.doxod2 section h2 {
+  color: #C9A24D;
+}
+.doxod2 section .text {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.doxod2 section {
+  /* ОСНОВА СТЕКЛА */
+  background: rgba(12, 15, 22, 0.55);
+  backdrop-filter: blur(20px) saturate(120%);
+  -webkit-backdrop-filter: blur(20px) saturate(120%);
+  /* ТОНКАЯ СТЕКЛЯННАЯ РАМКА */
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  /* ГЛУБИНА */
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), inset 0 -1px 0 rgba(0, 0, 0, 0.45), inset 0 0 0 1px rgba(255, 255, 255, 0.02);
+  /* микроконтур */
+  color: #fff;
+  /* ВНУТРЕННИЙ СВЕТ (очень важно) */
+}
+.doxod2 section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(120% 90% at 50% 0%, rgba(255, 255, 255, 0.08), transparent 60%);
+  pointer-events: none;
+  z-index: 1;
+}
+.doxod2 section {
+  /* NOISE — убирает «пластик» */
+}
+.doxod2 section::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+  mix-blend-mode: overlay;
+  pointer-events: none;
+  z-index: 2;
+}
+.doxod2 section {
+  /* КОНТЕНТ */
+}
+.doxod2 section > * {
+  position: relative;
+  z-index: 3;
+}
+
+.doxod3 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+.doxod3 section {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 40px;
+  border-radius: 12px;
+  border: 1px solid #1F2430;
+}
+.doxod3 section h2 {
+  color: #C9A24D;
+}
+.doxod3 section .text {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.doxod3 section .t {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.doxod3 section .t p {
+  font-size: 15px;
+}
+.doxod3 section {
+  /* ОСНОВА СТЕКЛА */
+  background: rgba(12, 15, 22, 0.55);
+  backdrop-filter: blur(20px) saturate(120%);
+  -webkit-backdrop-filter: blur(20px) saturate(120%);
+  /* ТОНКАЯ СТЕКЛЯННАЯ РАМКА */
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  /* ГЛУБИНА */
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), inset 0 -1px 0 rgba(0, 0, 0, 0.45), inset 0 0 0 1px rgba(255, 255, 255, 0.02);
+  /* микроконтур */
+  color: #fff;
+  /* ВНУТРЕННИЙ СВЕТ (очень важно) */
+}
+.doxod3 section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(120% 90% at 50% 0%, rgba(255, 255, 255, 0.08), transparent 60%);
+  pointer-events: none;
+  z-index: 1;
+}
+.doxod3 section {
+  /* NOISE — убирает «пластик» */
+}
+.doxod3 section::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+  mix-blend-mode: overlay;
+  pointer-events: none;
+  z-index: 2;
+}
+.doxod3 section {
+  /* КОНТЕНТ */
+}
+.doxod3 section > * {
+  position: relative;
+  z-index: 3;
+}
+
+.doxod4 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+.doxod4 .text {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+}
+.doxod4 .text p {
+  color: #8A909C;
+}
+.doxod4 .text img {
+  width: 400px;
+}
+
+.doxod5 {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  align-items: center;
+}
+.doxod5 section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+}
+.doxod5 section section2 {
+  display: flex;
+  padding: 10px;
+  gap: 20px;
+  border-radius: 12px;
+  border: 1px solid #1F2430;
+}
+.doxod5 section section2 .text {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+.doxod5 section section2 .text h3 {
+  font-size: 14px;
+}
+.doxod5 section section2 .text p {
+  font-size: 14px;
+}
+.doxod5 p {
+  font-size: 12px;
+}
+
+.calc {
+  display: flex;
+  flex-direction: column;
+  border-radius: 24px;
+  border: 1px solid #1F2430;
+  gap: 40px;
+  padding: 40px;
+}
+.calc .text {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+.calc .text h1 {
+  font-size: 40px;
+}
+.calc .text2 {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.calc .text2 .t {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.calc .text2 .t input[type=text] {
+  font-family: "SemiBold";
+  font-size: 16px;
+  padding: 10px 14px;
+  border-radius: 6px;
+  background: none;
+  border: 1px solid #DADDE3;
+  color: rgba(255, 255, 255, 0.2);
+}
+.calc .text2 .t .name {
+  font-size: 13px;
+  font-family: "SemiBold";
+  color: #B9BDC6;
+}
+.calc .text2 .tt {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.calc .text2 .tt h3 {
+  font-family: "SemiBold";
+  font-size: 13px;
+  color: #B9BDC6;
+}
+.calc .text2 .tt label {
+  color: #B9BDC6;
+  font-size: 15px;
+  font-family: "Regular";
+}
+.calc .line {
+  display: block;
+  height: 1px;
+  border: none;
+  border-top: 3px solid #E6E8EB;
+  padding: 0;
+}
+.calc .text3 {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+.calc .text3 .t {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.calc .text3 .t h3 {
+  font-size: 13px;
+  font-family: "SemiBold";
+  color: #6F7684;
+}
+.calc .text3 .t h1 {
+  font-size: 44px;
+  color: #E6E8EB;
+}
+.calc .text3 .t h2 {
+  font-size: 20px;
+  font-family: "SemiBold";
+  color: #E6E8EB;
+}
+.calc .text4 {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 700px;
+}
+.calc .text4 h3 {
+  font-size: 14px;
+  font-family: "SemiBold";
+}
+.calc .text4 p {
+  font-size: 14px;
+}
+
+.calc2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+.calc2 p {
+  font-size: 12px;
+}
+
+.process {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 80px;
+}
+
+.process3 {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  align-items: center;
+}
+.process3 .text {
+  width: 700px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.process3 .text h3 {
+  font-size: 28px;
+}
+
+.line {
+  display: block;
+  height: 1px;
+  border: none;
+  border-top: 3px solid #E6E8EB;
+  padding: 0;
+}
+
+.process2 {
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+}
+.process2 .text {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.process2 .text h3 {
+  font-size: 20px;
+  font-size: "SemiBold";
+}/*# sourceMappingURL=style.css.map */
